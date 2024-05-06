@@ -12,11 +12,11 @@ public sealed class OAuthSignInResponse
     
     public required string Email { get; init; }
     
-    public required string OAuthIdToken { get; init; }
+    public string OAuthIdToken { get; init; }
     
     public required string OAuthAccessToken { get; init; }
     
-    public required string OAuthTokenSecret { get; init; }
+    public string OAuthTokenSecret { get; init; }
     
     public required string RawUserInfo { get; init; }
     
@@ -36,5 +36,5 @@ public sealed class OAuthSignInResponse
     
     public required string ExpiresIn { get; init; }
     
-    public required bool NeedConfirmation { get; init; }
+    public bool NeedConfirmation { get; init; }
 }

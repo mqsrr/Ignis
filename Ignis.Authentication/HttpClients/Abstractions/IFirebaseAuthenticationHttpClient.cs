@@ -5,11 +5,15 @@ namespace Ignis.Authentication.HttpClients.Abstractions;
 
 public interface IFirebaseAuthenticationHttpClient
 {
-    public Task<EmailSignUpResponse?> SignUpAsync(EmailSignUpRequest request);
+    public Task<EmailSignUpResponse?> SignUpAsync(EmailSignUpRequest request, CancellationToken cancellationToken);
 
-    public Task<EmailSignInResponse?> EmailSignInAsync(EmailSignInRequest request);
+    public Task<EmailSignInResponse?> EmailSignInAsync(EmailSignInRequest request, CancellationToken cancellationToken);
 
-    public Task<AnonymousSignInResponse?> AnonymousSignInAsync(AnonymousSignInRequest request);
+    public Task<AnonymousSignInResponse?> AnonymousSignInAsync(AnonymousSignInRequest request, CancellationToken cancellationToken);
 
-    public Task<OAuthSignInResponse?> OAuthSignInAsync(OAuthSignInRequest request);
+    public Task<string> GetOAuthSignInLinkUsingGoogleAsync();
+    
+    public Task<OAuthSignInResponse?> OAuthSignInAsync(string accessToken, CancellationToken cancellationToken);
+    
+    public Task<GoogleAccessTokenResponse?> GetAccessTokenFromGoogleIdToken(string code, CancellationToken cancellationToken);
 }
